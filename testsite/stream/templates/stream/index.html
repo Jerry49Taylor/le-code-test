@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<ul>
+    {% for x in stream %}
+        {% if x.photo_item %}
+            {% if not x.photo_item.is_deleted %}
+    <li><a> <img src="{{ x.photo_item.image.url }}" height="420"></a></li>
+            {% endif %}
+        {% elif x.tweet_item %}
+            {% if not x.tweet_item.is_deleted %}
+    <li>{{ x.tweet_item.text }}</li>
+           {% endif %}
+        {% endif %}
+    {% endfor %}
+</ul>

@@ -1,10 +1,11 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 class ItemAbstract(models.Model):
     user = models.ForeignKey(User)
     created_at = models.DateTimeField()
+    is_deleted = models.BooleanField(default=False)
 
     class Meta:
         abstract = True
